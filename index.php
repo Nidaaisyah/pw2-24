@@ -1,45 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Halaman Dashboard</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    </head>
-    
-    
-    <body>
-     <?php  include "components/navbar.php" ?>
-        <div id="layoutSidenav">
-          <?php include_once "components/sidebar.php"?>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Halaman Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Static Navigation</li>
-                        </ol>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <p class="mb-0">
-                                   Hallo Perkenalkan Nama saya Nida Aisyah Firlina, angkatan 2023 teknik informatika,
-                                   domisili : bojong gede,bogor
-                                </p>
-                            </div>
-                        </div>
-                        <div style="height: 100vh"></div>
-                        <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div>
-                    </div>
-                </main>
-                <?php include_once "components/footer.php" ?>
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+<?php
+
+use Illuminate\Http\Request;
+
+define('LARAVEL_START', microtime(true));
+
+// Determine if the application is in maintenance mode...
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
+
+// Register the Composer autoloader...
+require __DIR__.'/../vendor/autoload.php';
+
+// Bootstrap Laravel and handle the request...
+(require_once __DIR__.'/../bootstrap/app.php')
+    ->handleRequest(Request::capture());
